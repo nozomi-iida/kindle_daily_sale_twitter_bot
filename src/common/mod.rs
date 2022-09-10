@@ -105,22 +105,3 @@ impl Config {
     }
   }
 }
-
-pub fn print_tweet(tweet: &egg_mode::tweet::Tweet) {
-  if let Some(ref user) = tweet.user {
-    println!(
-      "{} (@{}) posted at {}",
-      Paint::blue(&user.name),
-      Paint::blue(Paint::blue(&user.screen_name)),
-      tweet.created_at.with_timezone(&chrono::Local)
-    );
-  }
-
-  if let Some(ref status) = tweet.retweeted_status {
-    println!("{}", Paint::red("Retweet →"));
-    print_tweet(status);
-    return;
-  } else {
-    println!("{}", Paint::green(&tweet.text));
-  }
-}
