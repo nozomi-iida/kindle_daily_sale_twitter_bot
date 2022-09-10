@@ -6,6 +6,7 @@ use chrono::format::Item::Error;
 use egg_mode::media::{get_status, media_types, ProgressInfo, set_metadata, upload_media};
 use egg_mode::tweet::DraftTweet;
 use structopt::StructOpt;
+use crate::common;
 
 #[derive(StructOpt)]
 /// A simple CLI for uploading a tweet, optionally with media attached
@@ -20,7 +21,7 @@ struct Args {
   alt_text: Option<String>,
 }
 
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
+pub async fn create_tweet() -> Result<(), Box<dyn std::error::Error>> {
   let args: Args = Args::from_args();
   let config = common::Config::load().await;
 

@@ -1,4 +1,5 @@
 use std;
+use std::env;
 use std::io::{Read, Write};
 use egg_mode::auth::access_token;
 use yansi::Paint;
@@ -21,8 +22,8 @@ impl Config {
 
   pub async fn load_inner() -> Option<Self> {
     // FIXME: Get from env
-    let consumer_key = include_str!("consumer_key").trim();
-    let consumer_secret = include_str!("consumer_secret").trim();
+    let consumer_key = env::var("TWITTER_API_KEY").unwrap();
+    let consumer_secret = env::var("TWITTER_API_SECRET").unwrap();
     let con_token = egg_mode::KeyPair::new(consumer_key, consumer_secret);
     let mut config = String::new();
     let user_id: u64;
