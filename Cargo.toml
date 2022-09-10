@@ -1,0 +1,13 @@
+[package]
+name = "kindle_daily_sale_twitter_bot"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+chrono = "0.4.22"
+egg-mode = "0.16.0"
+tokio = {version = "1.21.0", features = ["rt", "rt-multi-thread", "macros"] }
+structopt = "0.3.26"
+yansi = "0.5.1"
