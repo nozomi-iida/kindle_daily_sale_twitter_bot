@@ -1,8 +1,6 @@
 use std;
 use std::env;
 use std::io::{Read, Write};
-use egg_mode::auth::access_token;
-use yansi::Paint;
 
 pub struct Config {
   pub token: egg_mode::Token,
@@ -63,7 +61,6 @@ impl Config {
 
       let mut pin = String::new();
       std::io::stdin().read_line(&mut pin).unwrap();
-      println!("");
 
       let tok_result = egg_mode::auth::access_token(con_token, &request_token, pin)
         .await
@@ -96,8 +93,8 @@ impl Config {
 
     if std::fs::metadata("twitter_settings").is_ok() {
       Some(Config {
-        token: token,
-        user_id: user_id,
+        token,
+        user_id,
         screen_name: username,
       })
     } else {

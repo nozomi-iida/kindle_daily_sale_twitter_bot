@@ -8,18 +8,9 @@ use egg_mode::tweet::DraftTweet;
 use structopt::StructOpt;
 use crate::common;
 
-#[derive(StructOpt)]
-/// A simple CLI for uploading a tweet, optionally with media attached
-struct Args {
-  /// Text of the tweet
-  text: String,
-}
-
-pub async fn create_tweet() -> Result<(), Box<dyn std::error::Error>> {
-  let args: Args = Args::from_args();
+pub async fn create_tweet(content: String) -> Result<(), Box<dyn std::error::Error>> {
   let config = common::Config::load().await;
-  let tweet = DraftTweet::new(args.text.clone());
+  let tweet = DraftTweet::new(content.clone());
   tweet.send(&config.token).await?;
-  println!("Sent tweet: '{}'", args.text);
   Ok(())
 }
