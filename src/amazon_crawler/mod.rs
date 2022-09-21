@@ -1,5 +1,5 @@
 use select::document::Document;
-use select::predicate::{Attr, Class, Name, Predicate};
+use select::predicate::{Attr, Class, Name};
 
 #[derive(Debug)]
 pub struct Book {

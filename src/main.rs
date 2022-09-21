@@ -1,6 +1,5 @@
 use chrono::Local;
 use dotenv::dotenv;
-use tokio::task::spawn_blocking;
 
 mod common;
 mod twitter_api;
