@@ -10,6 +10,7 @@ pub async fn create_tweet(content: String) -> Result<(), Box<dyn std::error::Err
   Ok(())
 }
 
+#[allow(dead_code)]
 pub async fn delete_all_tweet() {
   let config = auth::Config::load().await;
   let tweets = tweet::user_timeline(config.user_id, true, false, &config.token).with_page_size(200);
