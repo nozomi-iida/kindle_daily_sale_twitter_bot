@@ -19,3 +19,8 @@ pub async fn delete_all_tweet() {
     let _ = tweet::delete(status.response.id, &config.token).await.unwrap();
   }
 }
+
+#[allow(dead_code)]
+fn unfollow_all_users() {
+  // egg_mode::user::unfollow()
+}

@@ -18,7 +18,6 @@ pub fn get_daily_sale_books() -> Vec<Book> {
   let daily_sale_widget = document.find(Attr("cel_widget_id", "ebooks-deals-storefront_KindleDailyDealsStrategy")).next().unwrap();
 
   let mut books: Vec<Book> = Vec::new();
-
   for book_list in daily_sale_widget.find(Class("a-spacing-top-micro")) {
     let title = book_list.find(Name("a"))
       .next()
