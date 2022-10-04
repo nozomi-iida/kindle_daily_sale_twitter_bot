@@ -834,6 +834,7 @@ dependencies = [
  "chrono",
  "dotenv",
  "egg-mode",
+ "futures",
  "reqwest",
  "scraper",
  "select",
